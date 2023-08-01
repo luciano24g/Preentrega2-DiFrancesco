@@ -1,12 +1,12 @@
 // Objeto del juego
 const juegoMemoria = {
-  // Variables
+
   cartas: [], // Aquí almacenaremos las cartas del juego
   cartasVolteadas: [], // Almacenará temporalmente las cartas volteadas
   cartasEmparejadas: [], // Almacenará las cartas emparejadas
   totalCartas: 16, // Número total de cartas en el juego (deben ser pares)
 
-  // Variables adicionales
+  
   tiempoInicio: null,
   intervaloTemporizador: null,
   juegoTerminado: false, // Variable para controlar si el juego ha terminado
@@ -134,33 +134,13 @@ const juegoMemoria = {
     }
   },
 
-  /// Función para comenzar el contador
-  iniciarTemporizador: function() {
-    this.tiempoInicio = new Date().getTime();
-    this.intervaloTemporizador = setInterval(() => {
-      const tiempoActual = new Date().getTime();
-      const tiempoTranscurrido = Math.floor((tiempoActual - this.tiempoInicio) / 1000);
-      this.actualizarTemporizador(tiempoTranscurrido);
-    }, 1000);
-  },
-
-  // Función para detener el contador
-  detenerTemporizador: function() {
-    clearInterval(this.intervaloTemporizador);
-  },
-
-  // Función para actualizar el contador en el DOM
-  actualizarTemporizador: function(tiempoEnSegundos) {
-    const elementoTemporizador = document.getElementById('temporizador');
-    elementoTemporizador.textContent = `Tiempo: ${tiempoEnSegundos} segundos`;
-  }
 };
 
-// Obtener los botones por su ID
+
 const botonIniciar = document.getElementById('boton-iniciar');
 const botonReiniciar = document.getElementById('boton-reiniciar');
 
-// Agregar eventos de clic a los botones
+
 botonIniciar.addEventListener('click', () => juegoMemoria.iniciarJuego());
 botonReiniciar.addEventListener('click', () => juegoMemoria.reiniciarJuego());
 
